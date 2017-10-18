@@ -494,4 +494,101 @@ So, in this case, we have a div element that encloses
 both the Hello world divs.
 However, if we got rid of that div then it wouldn't work.
     
+# Curso   Module 1 | JSX and React Components   Functional Components   Functional Components
+
+Functional Components
+Marcar esta página
+React Components
+
+A React Component is an independent reusable component that outputs a React Element based on its properties and state.
+
+There are two types of React Components:
+
+Functional Components
+Class Components
+Class Components have state, lifecycle methods, and properties while Functional Components only have properties. In this module, we will cover Functional Components while Class Components will be covered in Module 2.
+
+Functional Components
+
+Functional Components are just functions that output React Elements. By convention, the first letter of the function name should be capitalized.
+
+Here is an example:
+```[JSX]
+    function HelloWorld(){
+        return <h1>Hello World!</h1>
+    }
     
+```
+You can use the React Component in JSX by creating an HTML tag with the same name as the React Component:
+```[JSX]
+    var element = <HelloWorld/>
+```
+Another Example:
+```[JSX]
+   ReactDOM.render(
+        <HelloWorld/>,
+        document.getElementById("root")
+    )
+    ```
+These examples will all evaluate to the React Element that is returned by the HelloWorld Component.
+
+Adding Properties to Functional Components
+
+The first argument to a Functional Component is an object that contains the component's properties.
+```[JSX]
+    function HelloWorld(props){
+        return <h1>Message: {props.message}</h1>
+    }
+    ```
+You can supply property values the same way as you supply attribute values:
+```[JSX]
+   ReactDOM.render(
+        <HelloWorld message="Hello World!"/>,
+        document.getElementById("root")
+    )
+    ```
+Properties can be string literals, arrays or any other type of JavaScript object including other React Elements:
+```[JSX]
+    function HelloWorld(props){
+        return <h1>Value: {props.numberArray[props.index]} </h1>
+    }
+
+    ReactDOM.render(
+        <HelloWorld index = "3" numberArray={[1,2,3,4,5]}/>,
+        document.getElementById("root")
+    )
+    ```
+You can supply as many property values as you want and they will all be accessible through the props argument.
+
+# Curso   Module 1 | JSX and React Components   Functional Components   Functional Components Video
+
+Functional Components Video
+
+A React component is an independent reusable component
+that returns a react element based on its properties and
+its state.
+There are two types of React components, class components and
+functional components.
+However, for now we're gonna cover functional components,
+as its name suggests, functional components are written similarly
+to JavaScript functions.
+Let's write one right now, Over here I am declaring
+a functional components named HelloWorld in this components
+will return a header with Hello World inside it.
+Now how do we use this functional component?
+Well in our ReactDOM.render function, we can put a tag
+with the functional component's name as the tag name.
+So in this case, it would be a tag with HelloWorld in it.
+And as we can see,
+our React component is now rendered to the page.
+Now we can add properties to this React component by adding
+props as an argument.
+The individual properties have to be supplied in a way similar
+to how attributes are declared.
+So if we have a property called message,
+you can assign that to something like My Message.
+And then, in our functional component we can use
+the curly brace notation to refer to that property.
+And as you can see here,
+the message property was supplied and it was,
+It was referenced by the props.message attribute.
