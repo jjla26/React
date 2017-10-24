@@ -592,3 +592,198 @@ the curly brace notation to refer to that property.
 And as you can see here,
 the message property was supplied and it was,
 It was referenced by the props.message attribute.
+
+# Curso   Module 1 | JSX and React Components   Composition   Composition
+
+Composition
+
+Functional Components can include other Functional Components in their output. This lets us keep our components organized and readible.
+
+For example, look at this Shopping Application that makes use of Composition:
+
+```[react]
+    function ShoppingTitle(props){
+        return (
+            <div>
+                <h1>{props.title}</h1>
+                <h2>Total Number of Items: {props.numItems}</h2>
+            </div>
+
+        ) 
+    }
+    function ListItem(props){
+        return <li>{props.item}</li>
+    }
+
+
+    function ShoppingList(props){
+        return (
+            <div>
+                <h3>{props.header}</h3>
+                <ol>
+                    <ListItem item = {props.items[0]}/>
+                    <ListItem item = {props.items[1]}/>
+                    <ListItem item = {props.items[2]}/>
+                </ol>
+            </div>
+        )
+    }
+
+
+    function ShoppingApp(props){
+
+        return (
+            <div>
+                <ShoppingTitle title = "My Shopping List" numItems = "9"/>
+                <ShoppingList header = "Food" items = {[ "Apple","Bread","Cheese"]}/>
+                <ShoppingList header = "Clothes" items = {[ "Shirt","Pants","Hat"]}/>
+                <ShoppingList header = "Supplies" items = {[ "Pen","Paper","Glue"]}/>
+            </div>
+        )
+    }
+
+    ReactDOM.render(
+        <ShoppingApp/>,
+        document.getElementById("root")
+    )
+    
+```
+
+Compare that to just defining all the UI in one Functional Component.
+
+```[react]
+    function ShoppingApp(props){
+        return (
+            <div>
+                <div>
+                    <h1>My Shopping List</h1>
+                    <h2>Total Number of Items: 9</h2>
+                </div>
+                <div>
+                    <h3>Food</h3>
+                    <ol>
+                        <li>Apple</li>
+                        <li>Bread</li>
+                        <li>Cheese</li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h3>Clothes</h3>
+                    <ol>
+                        <li>Shirt</li>
+                        <li>Pants</li>
+                        <li>Hat</li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h3>Supplies</h3>
+                    <ol>
+                        <li>Pen</li>
+                        <li>Paper</li>
+                        <li>Glue</li>
+                    </ol>
+                </div>
+
+
+            </div>
+        )
+    }
+
+    ReactDOM.render(
+        <ShoppingApp/>,
+        document.getElementById("root")
+    )
+```
+
+# Curso   Module 1 | JSX and React Components   Composition   Composition Video
+
+Composition Video
+
+Functional components can include
+other functional components in their outputs.
+Using this, we can model our application using a hierarchy
+of functional components.
+This allows us to keep our code clean and maintainable.
+So let's look at this functional component over here that's named
+ShoppingApp.
+Inside we can see that there is a lot of HTML tags, and
+it's kind of hard to maintain.
+It's output is a shopping list that contains three
+separate lists.
+So what we wanna do is see if we can extract smaller
+functional components out of this large functional component.
+So to do this, let's look for things that repeat itself.
+So we can see that we could break this down into a shopping
+title that has this two different headers.
+We could break this down to three different shopping lists
+over here, and each shopping list can have a title and
+three line items.
+So let's model it that way.
+So let's start with the line items.
+So here I'm making a functional component called LineItem.
+And I'm just gonna return an li tag.
+I'll fill this out later once we have a bigger picture of
+the overall application.
+So next,
+I'm gonna make the ShoppingList functional component that will,
+Return the list that has a title and three line items.
+So I'll start by returning a div that encompasses everything and
+then I'll put in the header.
+And then the three line items.
+And let's copy that three times.
+And make it look pretty.
+Okay, and then let's continue on and
+make the functional component for the shopping title.
+And this'll return a div that encompasses
+everything, and then a header for
+the title and another header for,
+The total number of items.
+Okay, now we can make a function component that holds
+all of these components.
+So, let's name it MyShoppingApp,
+to differentiate it from the existing ShoppingApp.
+And, Let's fill it out.
+So first we're going to have a div that encompasses everything,
+then we're gonna put in our shopping title.
+Followed by our shopping lists.
+And let's put three of those.
+Okay, so now that we have our overall structure,
+we need to populate it with data so
+that it resembles the original shopping list.
+Well, so, let's start with the title.
+So we have a title property and
+let's call it My New Shopping List.
+And then we have total number of items,
+let's call that numItems and set that equal to 9.
+And for our ShoppingList components, we will put in
+a title and then an array that includes all of the line items.
+So let's put in the title, Food, and then add the line items.
+Let's call them items, and create an array.
+And let's copy this, Three times.
+And this one will have Apple, Bread, Cheese.
+This one will have Shirt, Pants, Hat.
+And this one will have Pen,
+Paper, Glue.
+This will be Clothes.
+And this will be Supplies.
+Okay, so now that we have our data in our top level component,
+let's trickle it down to our other components.
+So ShoppingTitle is gonna have props.title here.
+And then it'll have total number of
+items and then props.num items.
+Okay, then our ShoppingList we will have
+our title here, so props.title.
+And then in each individual line item, we're gonna set
+another property, the item property, to be the props.items.
+And then reference it by the index we want.
+So this would be 0, and then we do this three times.
+And this will be 1 and 2.
+And then, lastly, our list item will have props.item.
+Okay, so now we can reference MyShoppingApp instead of
+ShoppingApp and see if, and there we have it.
+It worked, because we can see that the title changed to
+My New Shopping List.
+And if we compare the two, this shopping
+app is much more maintainable than this shopping app.
