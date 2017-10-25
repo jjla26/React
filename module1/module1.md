@@ -787,3 +787,111 @@ It worked, because we can see that the title changed to
 My New Shopping List.
 And if we compare the two, this shopping
 app is much more maintainable than this shopping app.
+
+# Curso   Module 1 | JSX and React Components   Conditional Rendering   Conditional Rendering
+
+Conditional Rendering
+
+The output of a Functional Component can be determined based on its properties.
+
+For example:
+```[react]
+
+    function Feature(props){
+        if (props.active == true){
+            return <h1>This feature is active</h1>
+        }
+        else{
+            return <h1>This feature is not active</h1>
+        }
+
+    }
+    ```
+This can also be accomplished using an inline conditional operator:
+```[react]
+
+    function Feature(props){
+        return <h1>This feature is {props.active? "active" : "not active"}</h1>
+    }
+    
+```
+
+Preventing Rendering
+
+The output of a Functional Component can be prevented from rendering.
+
+For example:
+
+```[react]
+    function Feature(props){
+        if(props.active!){
+            return null
+        }
+        else{
+            return <h1>{props.message}</h1>
+        }
+    }
+    ```
+You can also conditionally prevent a feature from rendering using the && operator:
+```[react]
+    function Feature(props){
+        return (
+            props.active && <h1>{props.message}</h1>
+        )
+    }
+    ```
+With the && operator, true and expression will always evaluate to expression. On the other hand, false and expression will always evaluate to false which won't render.
+
+# Curso   Module 1 | JSX and React Components   Conditional Rendering   Conditional Rendering Video
+
+Conditional Rendering Video
+
+Using conditional rendering, we can make the output
+of a functional component depend on its properties.
+So if we have functional component named Feature and
+it has a property named active,
+we can change the output whether active is true or false.
+So let's set it to true for this first example.
+And then we will use some if statements to make the output
+depending on whether it's true or false.
+So if(props.active == true) we'll make the output,
+This feature is ON.
+And if otherwise, we can make it, This feature is OFF.
+So since it's true, it's saying This feature is ON.
+But if we change this to false,
+the component now says This feature is OFF.
+So we can also do this in one line using
+the in-line conditional operator.
+So if we return, This feature is, and
+then put in our conditional operator, props.active.
+It has to be surrounded by curly braces since it's a JavaScript
+expression.
+So props.active, And
+then put in "ON":"OFF".
+And as you can see,
+it has the same results as that if statement.
+If we change it to true, it goes This features ON.
+The outputs of a functional component can also be prevented
+from rendering.
+So in this example let's pretend there is a feature component and
+it has a property called active.
+And let's set that to false.
+If we write an if statement that checks if props.active == false,
+and then we return null, then nothing will be rendered.
+And if it is active, then we can return something else,
+This feature is active.
+So for now since active is false and
+it returns null, nothing gets rendered.
+But if we change it to true, the feature will be rendered.
+This can also be done using the double ampersand operator.
+So if we wrote,
+return props.active
+&& this React element,
+it will check if props.active is true.
+And if this is true, then it will render the whole thing.
+But if this is false, It won't render it.
+And the way this works is because with the double
+ampersand operator, true and
+an expression will always evaluate to the expression.
+While false and the expression will always evaluate to false,
+which gets converted to null and then doesn't render.
