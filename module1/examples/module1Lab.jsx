@@ -8,7 +8,7 @@ function ShoppingTitle(props){
      return (
             <div>
                 <h1>{props.title}</h1>
-                <h2>Total Number of Items is : {props.numItems}</h2>
+                <h4>Total Number of Items is : {props.numItems}</h4>
             </div>
 
         ) 
@@ -34,10 +34,10 @@ function ShoppingTitle(props){
 
         return (
             <div>
-                <ShoppingTitle title = "My ShoppingList" numItems = "9"/>
-                <ShoppingList header = "Food" items = {["Apple","Bread","Chesse"]}/>
-                <ShoppingList header = "Clothes" items = {["Shirt","Pants","Hat"]}/>
-                <ShoppingList header = "Supplies" items ={["Pen", "Paper", "Glue"]}/>
+                <ShoppingTitle title = "Welcome to React Transportation" subtitle = "The best place to  buy vehicle online"/>
+                <ShoppingList header = "Cars" items = {["Apple","Bread","Chesse"]}/>
+                <ShoppingList header = "Trucks" items = {["Shirt","Pants","Hat"]}/>
+                <ShoppingList header = "Convertibles" items ={["Pen", "Paper", "Glue"]}/>
             </div>
         )
     }
