@@ -1,48 +1,73 @@
-function ListItem(props){
-    return <li>{props.item}</li>
-    
-    
+function Cars(props){
+
+
+  return(
+  <div>
+  <Subtitle type= "Cars"/>
+  <Structure index= "3" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  <Structure index= "3" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  <Structure index= "3" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  </div>
+  )
 }
 
-function ShoppingTitle(props){
-     return (
-            <div>
-                <h1>{props.title}</h1>
-                <h4>Total Number of Items is : {props.numItems}</h4>
-            </div>
-
-        ) 
-    
-    
+function Trucks(props){
+  return(
+        <div>
+  <Structure index= "3" type= "Cars" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  <Structure index= "3" type= "Cars" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  <Structure index= "3" type= "Cars" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  </div>)
+}
+function Convertibles(props){
+  return(
+       <div>
+  <Structure index= "3" type= "Cars" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  <Structure index= "3" type= "Cars" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  <Structure index= "3" type= "Cars" year= {["2013","2011","2016"]} model= {["A","B","B"]} price= {["$32","$4.4","15.5"]}/>
+  </div>)
 }
 
- function ShoppingList(props){
-        return (
-            <div>
-                <h3>{props.header}</h3>
-                <ol>
-                    <ListItem item = {props.items[0]}/>
-                    <ListItem item = {props.items[1]}/>
-                    <ListItem item = {props.items[2]}/>
-                </ol>
-            </div>
+function Subtitle(props){
+    return(
+        <h2>{props.type}</h2>
         )
-    
 }
 
-   function ShoppingApp(props){
 
-        return (
-            <div>
-                <ShoppingTitle title = "Welcome to React Transportation" subtitle = "The best place to  buy vehicle online"/>
-                <ShoppingList header = "Cars" items = {["Apple","Bread","Chesse"]}/>
-                <ShoppingList header = "Trucks" items = {["Shirt","Pants","Hat"]}/>
-                <ShoppingList header = "Convertibles" items ={["Pen", "Paper", "Glue"]}/>
-            </div>
-        )
-    }
+function Structure(props){
+  
+      return( 
+<div>      
+  
+      <table className = "table table-bordered" >
+   <tr>
+    <th>Year</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Buy</th>
+  </tr>
+  
+  <tr>
+    <td>{props.year[0]}</td>
+    <td>{props.model[0]}</td>
+    <td>{props.price[0]}</td>
+    <td><button>Buy now</button></td>
+  </tr>
+  
+  </table>
+         
+    </div>
+)
+       }
 
-   ReactDOM.render(
-        <ShoppingApp/>,
-        document.getElementById("root")
-    )
+
+ReactDOM.render(
+    <div>
+<Cars/>
+<Convertibles/>
+<Trucks/>
+</div>,
+  document.getElementById("root")
+
+)
